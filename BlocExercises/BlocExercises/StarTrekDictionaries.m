@@ -11,18 +11,24 @@
 @implementation StarTrekDictionaries
 
 - (NSString *)favoriteDrinkForStarTrekCharacterDictionary:(NSDictionary *)characterDictionary {
-    /* WORK HERE */
-    return @"";
+    return characterDictionary[@"favorite drink"];
 }
 
 - (NSArray *)arrayOfFavoriteDrinksForStarTrekCharacters:(NSArray *)charactersArray {
-    /* WORK HERE */
-    return @[];
+    NSMutableArray *array = [@[] mutableCopy];
+    [charactersArray enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
+        if ([obj isKindOfClass:[NSDictionary class]]) {
+            NSDictionary *each = (NSDictionary *) obj;
+            [array addObject:each[@"favorite drink"]];
+        }
+    }];
+    return array;
 }
 
 - (NSDictionary *)dictionaryWithQuoteAddedToStarTrekCharacterDictionary:(NSDictionary *)characterDictionary {
-    /* WORK HERE */
-    return @{};
+    NSMutableDictionary *dictionary = [characterDictionary mutableCopy];
+    [dictionary setObject:@"Some quote" forKey:@"quote"];
+    return dictionary;
 }
 
 @end
