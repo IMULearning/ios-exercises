@@ -90,7 +90,7 @@ let strings = ["milk", "eggs", "bread", "challah"]
 
 // WORK HERE - make your function and pass `strings` in
 func semicolonSeperatedStringFromArray(input: Array<String>) -> String {
-    return input.join(";")
+    return ";".join(input)
 }
 let expectedOutput = semicolonSeperatedStringFromArray(strings)
 
